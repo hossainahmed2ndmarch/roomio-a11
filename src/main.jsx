@@ -1,10 +1,36 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import React from "react";
+import "./index.css";
+import router from "./routs/Router";
+import { RouterProvider } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
+import AuthProvider from "./providers/AuthProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>    
+      <AuthProvider>
+        <HelmetProvider>
+          {" "}
+          <RouterProvider router={router} />
+          <ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={true}
+            closeOnClick={true}
+            pauseOnHover={true}
+            draggable={true}
+            toastStyle={{
+              background: "rgba(255, 255, 255, 0.3)",
+              backdropFilter: "blur(10px)",
+              borderRadius: "10px",
+              color: "#0077b6",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          />
+        </HelmetProvider>
+      </AuthProvider>
+  </React.StrictMode>
+);
