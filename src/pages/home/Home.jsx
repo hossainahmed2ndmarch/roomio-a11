@@ -4,6 +4,7 @@ import HotelMap from "./HotelMap";
 import Offer from "./Offer";
 import Services from "./Services";
 import Packages from "./Packages";
+import FeatureRooms from "./FeatureRooms";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner></Banner>
       <HotelMap></HotelMap>
       <Offer></Offer>
+      <FeatureRooms></FeatureRooms>
       <Services></Services>
       <Packages></Packages>
     </div>
