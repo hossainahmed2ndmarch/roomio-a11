@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { GoPeople } from "react-icons/go";
@@ -22,9 +22,12 @@ import { FaPumpSoap } from "react-icons/fa6";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { PiHairDryerBold } from "react-icons/pi";
 import { GiSlippers } from "react-icons/gi";
+import BookingModal from "./BookingModal";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Room = () => {
   const room = useLoaderData();
+  const { user } = useContext(AuthContext);
   const {
     price,
     image,
@@ -38,7 +41,27 @@ const Room = () => {
     size,
     category,
     title,
+    isAvailable,
   } = room;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBookingDisabled, setIsBookingDisabled] = useState(!isAvailable);
+
+  const handleBooking = () => {
+    if (isAvailable) {
+      setIsModalOpen(true);
+      console.log("Modal Open State:", isModalOpen);
+      // Open the modal on button click
+    } else {
+      alert("This room is already booked.");
+    }
+  };
+
+  const handleConfirmBooking = () => {
+    // Disable the "Book Now" button after booking
+    setIsBookingDisabled(true);
+    setIsModalOpen(false); // Close the modal after confirmation
+    alert("Booking confirmed! The room is now unavailable.");
+  };
 
   // Map icons for room amenities
   const roomAmenityIcons = {
@@ -136,14 +159,26 @@ const Room = () => {
 
           <div className="card-actions justify-start">
             <button
-              onClick={() => navigate(`/room-details/${room._id}`)}
+              onClick={() => handleBooking()}
+              disabled={isBookingDisabled}
               className="flex flex-row items-center space-x-4 border-b-2 text-xl text-primary border-b-secondary"
             >
-              Book Now <IoIosArrowForward />
+              {isBookingDisabled ? "Already Booked" : "Book Now"}{" "}
+              <IoIosArrowForward />
             </button>
           </div>
         </div>
       </div>
+      {/* Booking Modal */}
+      {isModalOpen && (
+        <BookingModal
+          room={room}
+          user={user}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)} // Close modal
+          onConfirm={handleConfirmBooking} // Confirm booking
+        />
+      )}
     </div>
   );
 };
