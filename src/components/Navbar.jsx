@@ -36,6 +36,16 @@ const Navbar = () => {
       >
         Rooms
       </NavLink>
+      {user && user?.email && (
+        <>
+          <NavLink
+            className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all hover:shadow-[4px_4px_10px_rgba(0,0,0,0.3),-4px_-4px_10px_rgba(255,255,255,0.2)]"
+            to="/my-bookings"
+          >
+            My Bookings
+          </NavLink>
+        </>
+      )}
     </>
   );
 

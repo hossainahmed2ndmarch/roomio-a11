@@ -49,7 +49,7 @@ const BookingModal = ({ room, user, onClose, onConfirm }) => {
           <div>
             <h3 className="font-bold">{title}</h3>
             <p>Price: ${price}</p>
-            <p>User: {user?.name || "Guest"}</p>
+            <p>User: {user?.displayName || "Guest"}</p>
           </div>
         </div>
         <div className="mt-4">

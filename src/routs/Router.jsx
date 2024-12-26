@@ -32,6 +32,7 @@ const router = createBrowserRouter([
             <MyBookings></MyBookings>
           </PrivateRoute>
         ),
+        
       },
       {
         path: "/room-details/:id",
