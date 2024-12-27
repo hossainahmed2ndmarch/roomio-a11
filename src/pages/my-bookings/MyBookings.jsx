@@ -2,10 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 // import CancelModal from "./CancelModal";
 // import ReviewModal from "./ReviewModal";
-// import UpdateDateModal from "./UpdateDateModal";
+import UpdateDateModal from "../../components/UpdateDateModal";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+
 
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
@@ -28,6 +29,8 @@ const MyBookings = () => {
       });
   }, [user.email]);
 
+
+  // Delete functionality
   const handleCancelBooking = (id, bookedId) => {
     Swal.fire({
       title: "Are you sure?",
@@ -52,11 +55,13 @@ const MyBookings = () => {
       }
     });
   };
-
-  // const handleUpdateBookingDate = (booking) => {
-  //   setSelectedBooking(booking);
-  //   setShowUpdateDateModal(true);
-  // };
+  
+  // Update functionality
+  const handleUpdateBookingDate = (booking) => {
+    setSelectedBooking(booking);
+    console.log(booking);
+    setShowUpdateDateModal(true);
+  };
 
   // const handleReviewBooking = (booking) => {
   //   setSelectedReviewBooking(booking);
@@ -102,7 +107,7 @@ const MyBookings = () => {
               <td className="border p-2">${booking.price}</td>
               <td className="border p-2">
                 <button
-                  // onClick={() => handleUpdateBookingDate(booking?._id)}
+                  onClick={() => handleUpdateBookingDate(booking?._id)}
                   className="btn btn-secondary mr-2"
                 >
                   Update Date
@@ -139,7 +144,7 @@ const MyBookings = () => {
           onCancel={setShowReviewModal}
         />
       )} */}
-      {/* {showUpdateDateModal && (
+      {showUpdateDateModal && (
         <UpdateDateModal
           booking={selectedBooking}
           onCancel={setShowUpdateDateModal}
@@ -152,7 +157,7 @@ const MyBookings = () => {
             toast.success("Booking date updated successfully!");
           }}
         />
-      )} */}
+      )}
     </div>
   );
 };
