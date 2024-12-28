@@ -1,17 +1,25 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Rating from "@mui/material/Rating";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
 
-const ReviewModal = ({ booking, onCancel }) => {
+const ReviewModal = ({ booking, onCancel, user }) => {
+  const { displayName, photoURL } = user;
   const [review, setReview] = useState("");
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState(0);
 
   const handleSubmit = () => {
     if (review) {
       axios
         .post("http://localhost:5000/reviews", {
-          bookingId: booking._id,
+          bookingId: booking?._id,
+          reviewedRoomId: booking?.bookedId,
+          reviewerName: displayName,
+          reviewerImage: photoURL,
           review: review,
           rating: rating,
+          timestamp: new Date().toISOString(),
         })
         .then(() => {
           onCancel(false);
@@ -26,29 +34,37 @@ const ReviewModal = ({ booking, onCancel }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-6 rounded-md w-96">
         <h2 className="text-xl font-bold">Leave a Review</h2>
-        <div className="mt-4">
-          <textarea
-            className="w-full p-2 border"
-            rows="4"
-            placeholder="Write your review here..."
+        <Box className="mt-4">
+          <TextField
+            label="Reviewer Name"
+            variant="outlined"
+            fullWidth
+            value={displayName}
+            InputProps={{
+              readOnly: true,
+            }}
+            className="bg-gray-100"
+          />
+        </Box>
+        <Box className="mt-4">
+          <TextField
+            label="Your Review"
+            variant="outlined"
+            multiline
+            rows={4}
+            fullWidth
             value={review}
             onChange={(e) => setReview(e.target.value)}
           />
-        </div>
-        <div className="mt-4">
-          <label className="font-bold">Rating</label>
-          <select
-            className="w-full p-2 border"
+        </Box>
+        <Box className="mt-4">
+          <label className="font-bold">Rating:</label>
+          <Rating
+            name="simple-controlled"
             value={rating}
-            onChange={(e) => setRating(e.target.value)}
-          >
-            <option value={1}>1 Star</option>
-            <option value={2}>2 Stars</option>
-            <option value={3}>3 Stars</option>
-            <option value={4}>4 Stars</option>
-            <option value={5}>5 Stars</option>
-          </select>
-        </div>
+            onChange={(event, newValue) => setRating(newValue)}
+          />
+        </Box>
         <div className="mt-4 flex justify-end space-x-4">
           <button className="btn btn-secondary" onClick={() => onCancel(false)}>
             Cancel

@@ -119,6 +119,7 @@ const MyBookings = () => {
       {/* Review Modal */}
       {showReviewModal && (
         <ReviewModal
+          user={user}
           booking={selectedReviewBooking}
           onCancel={setShowReviewModal}
         />
