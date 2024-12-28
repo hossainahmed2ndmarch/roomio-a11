@@ -24,7 +24,7 @@ const MyBookings = () => {
       .catch((error) => {
         console.error("Error fetching bookings", error);
       });
-  }, [user.email]);
+  }, [user?.email]);
 
   // Delete functionality
   const handleCancelBooking = (id, bookedId) => {
