@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-// import CancelModal from "./CancelModal";
-// import ReviewModal from "./ReviewModal";
+import ReviewModal from "../../components/ReviewModal";
 import UpdateDateModal from "../../components/UpdateDateModal";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
-
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
-  const [showCancelModal, setShowCancelModal] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [selectedReviewBooking, setSelectedReviewBooking] = useState(null);
@@ -28,7 +25,6 @@ const MyBookings = () => {
         console.error("Error fetching bookings", error);
       });
   }, [user.email]);
-
 
   // Delete functionality
   const handleCancelBooking = (id, bookedId) => {
@@ -55,7 +51,7 @@ const MyBookings = () => {
       }
     });
   };
-  
+
   // Update functionality
   const handleUpdateBookingDate = (booking) => {
     setSelectedBooking(booking);
@@ -63,23 +59,12 @@ const MyBookings = () => {
     setShowUpdateDateModal(true);
   };
 
-  // const handleReviewBooking = (booking) => {
-  //   setSelectedReviewBooking(booking);
-  //   setShowReviewModal(true);
-  // };
+  // Review Functionality
 
-  // const handleCancelConfirm = () => {
-  //   axios
-  //     .delete(`http://localhost:5000/bookings/${selectedBooking._id}`)
-  //     .then(() => {
-  //       toast.success("Booking cancelled successfully!");
-  //       setShowCancelModal(false);
-  //       setBookings(bookings.filter((b) => b._id !== selectedBooking._id));
-  //     })
-  //     .catch((error) => {
-  //       toast.error("Error canceling booking");
-  //     });
-  // };
+  const handleReviewBooking = (booking) => {
+    setSelectedReviewBooking(booking);
+    setShowReviewModal(true);
+  };
 
   return (
     <div>
@@ -121,7 +106,7 @@ const MyBookings = () => {
                   Cancel
                 </button>
                 <button
-                  // onClick={() => handleReviewBooking(booking)}
+                  onClick={() => handleReviewBooking(booking)}
                   className="btn btn-primary"
                 >
                   Review
@@ -131,19 +116,14 @@ const MyBookings = () => {
           ))}
         </tbody>
       </table>
-
-      {/* {showCancelModal && (
-        <CancelModal
-          onCancel={setShowCancelModal}
-          onConfirm={handleCancelConfirm}
-        />
-      )} */}
-      {/* {showReviewModal && (
+      {/* Review Modal */}
+      {showReviewModal && (
         <ReviewModal
           booking={selectedReviewBooking}
           onCancel={setShowReviewModal}
         />
-      )} */}
+      )}
+      {/* Update date modal */}
       {showUpdateDateModal && (
         <UpdateDateModal
           booking={selectedBooking}
