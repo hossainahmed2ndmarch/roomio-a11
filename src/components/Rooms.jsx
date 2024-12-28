@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { GoPeople } from "react-icons/go";
@@ -7,13 +7,52 @@ import { SlSizeFullscreen } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
 import { FaRegClock } from "react-icons/fa6";
 import { FaBath } from "react-icons/fa";
+import axios from "axios";
 
 const Rooms = () => {
-  const rooms = useLoaderData();
+  const [rooms, setRooms] = useState(useLoaderData());
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
   const navigate = useNavigate();
-  console.log(rooms);
+
+  // Handle filtering rooms
+  const handleFilter = () => {
+    axios
+      .get(
+        `http://localhost:5000//rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`
+      )
+      .then((response) => {
+        setRooms(response.data);
+      });
+  };
+
   return (
     <div className="my-10 p-6">
+      {/* Filter Section */}
+      <div className="text-center mb-10">
+        <h2 className="text-2xl font-bold">Filter Rooms by Price</h2>
+        <div className="flex flex-row justify-center items-center space-x-4 mt-4">
+          <input
+            type="number"
+            placeholder="Min Price"
+            className="input input-bordered"
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Max Price"
+            className="input input-bordered"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value)}
+          />
+          <button className="btn btn-primary" onClick={handleFilter}>
+            Apply Filter
+          </button>
+        </div>
+      </div>
+
+      {/* Rooms List */}
       <div className="text-center space-y-5 mb-10">
         <h5 className="text-secondary text-lg font-semibold">
           Comfortable Rooms & Space
