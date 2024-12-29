@@ -191,7 +191,7 @@ const Room = () => {
             <h2 className="text-2xl font-bold text-[#ece9e4]">
               Guest Experiences That Speak Volumes
             </h2>
-            <div className=" mt-10 grid grid-cols-1 gap-6">
+            <div className=" mt-10 grid grid-cols-1 grid-flow-row auto-rows-max  gap-6">
               {reviews.map((review) => (
                 <RoomReviewCard
                   key={review?._id}
