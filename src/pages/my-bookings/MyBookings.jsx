@@ -5,6 +5,7 @@ import UpdateDateModal from "../../components/UpdateDateModal";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import moment from "moment/moment";
 
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
@@ -27,7 +28,23 @@ const MyBookings = () => {
   }, [user?.email]);
 
   // Delete functionality
-  const handleCancelBooking = (id, bookedId) => {
+  const handleCancelBooking = (id, bookedId, bookingDate) => {
+    // Get current date and booking date
+    const currentDate = moment(); // Current date
+    const bookedDate = moment(bookingDate);
+
+    // Calculate the difference in days
+    const daysUntilBooking = bookedDate.diff(currentDate, "days");
+
+    if (daysUntilBooking <= 1) {
+      Swal.fire(
+        "Cancellation Not Allowed",
+        "You cannot cancel this booking as it is within 1 day of the booking date.",
+        "error"
+      );
+      return;
+    }
+    // Proceed with cancellation request
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -45,8 +62,10 @@ const MyBookings = () => {
             });
           })
           .then(() => {
-            Swal.fire("Deleted!", "Visa has been deleted.", "success");
-            setVisas(bookings.filter((booking) => booking._id !== id));
+            setBookings((prevBookings) =>
+              prevBookings.filter((booking) => booking._id !== id)
+            );
+            Swal.fire("Deleted!", "Your booking has been deleted.", "success");
           });
       }
     });
@@ -99,7 +118,11 @@ const MyBookings = () => {
                 </button>
                 <button
                   onClick={() =>
-                    handleCancelBooking(booking?._id, booking?.bookedId)
+                    handleCancelBooking(
+                      booking?._id,
+                      booking?.bookedId,
+                      booking?.bookingDate
+                    )
                   }
                   className="btn btn-danger mr-2"
                 >
