@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import moment from "moment/moment";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
@@ -14,17 +15,23 @@ const MyBookings = () => {
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [selectedReviewBooking, setSelectedReviewBooking] = useState(null);
   const [showUpdateDateModal, setShowUpdateDateModal] = useState(false);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     // Fetch the user's bookings from the backend
-    axios
-      .get(`http://localhost:5000/my-booked-rooms?email=${user?.email}`)
-      .then((response) => {
-        setBookings(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching bookings", error);
-      });
+    // axios
+    //   .get(`http://localhost:5000/my-booked-rooms?email=${user?.email}`, {
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     setBookings(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching bookings", error);
+    //   });
+    axiosSecure.get(`/my-booked-rooms?email=${user?.email}`).then((res) => {
+      setBookings(res.data);
+    });
   }, [user?.email]);
 
   // Delete functionality
