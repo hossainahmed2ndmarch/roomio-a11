@@ -16,23 +16,35 @@ const HotelMap = () => {
   const position = [23.7805733, 90.2792392]; // Replace with your hotel's latitude and longitude
 
   return (
-    <div className="map-container" style={{ height: "400px", width: "100%" }}>
-      <MapContainer
-        center={position}
-        zoom={13}
-        scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={position}>
-          <Popup>
-            This is the hotel's location. <br /> Come visit us!
-          </Popup>
-        </Marker>
-      </MapContainer>
+    <div className="my-10">
+      <div className="mb-10">
+        <h2 className="text-[#5c4b51] text-5xl font-bold">
+          Find Your Perfect Stay
+        </h2>
+        <p className="text-primary font-medium">
+          Use our interactive map to explore hotel locations, discover nearby{" "}
+          <br />
+          attractions, and choose the ideal room for your next getaway.
+        </p>
+      </div>
+      <div className="map-container h-[400px] w-full">
+        <MapContainer
+          center={position}
+          zoom={13}
+          scrollWheelZoom={false}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker className="text-red-500" position={position}>
+            <Popup>
+              This is the hotel's location. <br /> Come visit us!
+            </Popup>
+          </Marker>
+        </MapContainer>
+      </div>
     </div>
   );
 };

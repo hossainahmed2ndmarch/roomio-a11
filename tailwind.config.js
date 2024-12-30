@@ -11,7 +11,7 @@ export default {
       },
       colors: {
         primary: "#54644c", // Olive green
-        primaryLight:"#889b80",
+        blackLight:"#5c4b51",
         secondary: "#bc9c74", // Beige gold
         light: "#ffffff", // White
       },

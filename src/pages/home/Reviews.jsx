@@ -12,8 +12,8 @@ const Reviews = () => {
   }, []);
   return (
     <div className="my-10">
-      <h2 className="text-4xl font-bold">Guest Experiences</h2>
-      <p>
+      <h2 className="text-4xl font-bold text-blackLight">Guest Experiences</h2>
+      <p className="text-primary">
         Discover what our valued guests have to say about their unforgettable{" "}
         <br />
         stays, from exceptional service to luxurious rooms <br />

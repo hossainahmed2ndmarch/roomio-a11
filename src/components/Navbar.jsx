@@ -25,13 +25,13 @@ const Navbar = () => {
   const links = (
     <>
       <NavLink
-        className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all hover:shadow-[4px_4px_10px_rgba(0,0,0,0.3),-4px_-4px_10px_rgba(255,255,255,0.2)]"
+        className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
         to="/"
       >
         Home
       </NavLink>
       <NavLink
-        className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all hover:shadow-[4px_4px_10px_rgba(0,0,0,0.3),-4px_-4px_10px_rgba(255,255,255,0.2)]"
+        className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
         to="/all-rooms"
       >
         Rooms
@@ -39,7 +39,7 @@ const Navbar = () => {
       {user && user?.email && (
         <>
           <NavLink
-            className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all hover:shadow-[4px_4px_10px_rgba(0,0,0,0.3),-4px_-4px_10px_rgba(255,255,255,0.2)]"
+            className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
             to="/my-bookings"
           >
             My Bookings
@@ -50,11 +50,11 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar  shadow-lg rounded-b-3xl">
+    <div className="navbar shadow-lg rounded-b-3xl">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <GiHamburgerMenu className="text-3xl text-blue-600 dark:text-teal-300" />
+            <GiHamburgerMenu className="text-3xl text-primary" />
           </div>
           <ul
             tabIndex={0}
@@ -63,10 +63,21 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="text-3xl flex items-center  font-bold text-blue-600 dark:text-teal-300">
-          <FaPlaneDeparture className="ml-1" />
-          Roomio
-        </a>
+        <div className="flex flex-col items-center">
+          {/* <!-- Logo Text --> */}
+          <a className="text-3xl text-primary tracking-[5px]">
+            R<span class="text-secondary">OO</span>MIO
+          </a>
+
+          {/* <!-- Star Section --> */}
+          <div className="flex space-x-1 mt-2">
+            <span className="text-secondary text-lg">★</span>
+            <span className="text-secondary text-lg">★</span>
+            <span className="text-secondary text-lg">★</span>
+            <span className="text-secondary text-lg">★</span>
+            <span className="text-secondary text-lg">★</span>
+          </div>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-4">{links}</ul>
@@ -88,14 +99,14 @@ const Navbar = () => {
             </div>
           </Link>
         ) : (
-          <Link
+          <NavLink
             to={"/registration"}
             data-tooltip-id="register-tooltip"
             data-tooltip-content="Register your account"
-            className="py-2 px-4 rounded-lg bg-gradient-to-r from-gray-100 to-teal-200 shadow-[4px_4px_8px_rgba(0,0,0,0.2),-4px_-4px_8px_rgba(255,255,255,0.7)] font-semibold text-blue-600 transition-all hover:shadow-[5px_5px_10px_rgba(0,0,0,0.3),-5px_-5px_10px_rgba(255,255,255,0.2)]"
+            className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
           >
             Register
-          </Link>
+          </NavLink>
         )}
 
         {user && user?.email ? (
@@ -103,19 +114,19 @@ const Navbar = () => {
             onClick={handleLogOut}
             data-tooltip-id="logout-tooltip"
             data-tooltip-content="Log Out"
-            className="py-2 px-4 rounded-lg bg-gradient-to-r from-gray-100 to-teal-200 shadow-[4px_4px_8px_rgba(0,0,0,0.2),-4px_-4px_8px_rgba(255,255,255,0.7)] font-semibold text-blue-600 transition-all hover:shadow-[5px_5px_10px_rgba(0,0,0,0.3),-5px_-5px_10px_rgba(255,255,255,0.2)]"
+            className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
           >
             Log-Out
           </button>
         ) : (
-          <Link
+          <NavLink
             to={"/login"}
             data-tooltip-id="login-tooltip"
             data-tooltip-content="Log in to your account"
-            className="py-2 px-4 rounded-lg bg-gradient-to-r from-gray-100 to-teal-200 shadow-[4px_4px_8px_rgba(0,0,0,0.2),-4px_-4px_8px_rgba(255,255,255,0.7)] font-semibold text-blue-600 transition-all hover:shadow-[5px_5px_10px_rgba(0,0,0,0.3),-5px_-5px_10px_rgba(255,255,255,0.2)]"
+            className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
           >
             LogIn
-          </Link>
+          </NavLink>
         )}
       </div>
       <Tooltip id="profile-tooltip" place="bottom" />

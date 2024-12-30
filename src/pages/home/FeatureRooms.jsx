@@ -6,18 +6,18 @@ import { Link } from "react-router-dom";
 const FeatureRooms = () => {
   const [rooms, setRooms] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/rooms/home").then((res) => {
+    axios.get("http://localhost:5000/rooms/top-rated").then((res) => {
       setRooms(res.data);
     });
   }, []);
   return (
-    <div className="p-4">
+    <div>
       <div className="flex flex-col md:flex-row justify-between items-center space-x-4">
         <div className="space-y-4">
-          <h5 className="text-primary text-xl">
+          <h5 className="text-primary text-lg font-bold">
             Enjoy World-class Stay Experience
           </h5>
-          <h2 className="text-black text-5xl font-bold">Select Your Chalet</h2>
+          <h2 className="text-[#5c4b51] text-5xl font-bold">Select Your Chalet</h2>
           <p className="text-primary font-medium">
             Escape to the beautiful mountains and valleys where dreams come{" "}
             <br />
@@ -39,7 +39,11 @@ const FeatureRooms = () => {
       </div>
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {rooms.map((room) => (
-          <RoomCard key={room._id} room={room}></RoomCard>
+          <RoomCard
+            key={room.roomDetails._id}
+            room={room.roomDetails}
+            avgRating={room.avgRating}
+          ></RoomCard>
         ))}
       </div>
     </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Typewriter } from "react-simple-typewriter";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -13,20 +12,20 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="relative bg-winter-light-bg text-center py-10">
+    <div className="mb-10 text-center py-10">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 10000, disableOnInteraction: false }}
         loop={true}
-        className="w-full h-[500px] sm:h-[400px] md:h-[500px]"
+        className="w-full h-[500px] sm:h-[400px] sm:object-cover md:h-[500px]"
       >
         {/* Slide 1 */}
         <SwiperSlide
           className="hero min-h-screen"
           style={{
-            backgroundImage: `url(${banner1})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${banner1})`,
           }}
         >
           <div className="py-20">
@@ -42,7 +41,10 @@ const Banner = () => {
                   redefine modern living with sophisticated interiors, serene
                   surroundings, and state-of-the-art facilities.
                 </p>
-                <Link className="btn bg-transparent rounded-none border border-light hover:bg-secondary hover:border-none text-light text-2xl">
+                <Link
+                  to="/all-rooms"
+                  className="btn bg-transparent rounded-none border border-light hover:bg-secondary hover:border-none text-light text-2xl"
+                >
                   Book Now
                 </Link>
               </div>
@@ -54,7 +56,7 @@ const Banner = () => {
         <SwiperSlide
           className="hero min-h-screen"
           style={{
-            backgroundImage: `url(${banner2})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${banner2})`,
           }}
         >
           <div className="py-20">
@@ -69,7 +71,10 @@ const Banner = () => {
                   exclusive villas offer spacious layouts, exquisite decor, and
                   breathtaking views, making every moment truly unforgettable.
                 </p>
-                <Link className="btn bg-transparent rounded-none border border-light hover:bg-secondary hover:border-none text-light text-2xl">
+                <Link
+                  to="/all-rooms"
+                  className="btn bg-transparent rounded-none border border-light hover:bg-secondary hover:border-none text-light text-2xl"
+                >
                   Book Now
                 </Link>
               </div>
@@ -81,7 +86,7 @@ const Banner = () => {
         <SwiperSlide
           className="hero min-h-screen"
           style={{
-            backgroundImage: `url(${banner3})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${banner3})`,
           }}
         >
           <div className="py-20">
@@ -97,7 +102,10 @@ const Banner = () => {
                   and personalized services, every stay feels like a retreat
                   into luxury.
                 </p>
-                <Link className="btn bg-transparent rounded-none border border-light hover:bg-secondary hover:border-none text-light text-2xl">
+                <Link
+                  to="/all-rooms"
+                  className="btn bg-transparent rounded-none border border-light hover:bg-secondary hover:border-none text-light text-2xl"
+                >
                   Book Now
                 </Link>
               </div>
@@ -108,7 +116,7 @@ const Banner = () => {
         <SwiperSlide
           className="hero min-h-screen"
           style={{
-            backgroundImage: `url(${banner4})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${banner4})`,
           }}
         >
           <div className="py-20">
@@ -125,7 +133,10 @@ const Banner = () => {
                   views, our properties are designed to inspire and delight at
                   every turn.
                 </p>
-                <Link className="btn bg-transparent rounded-none border border-light hover:bg-secondary hover:border-none text-light text-2xl">
+                <Link
+                  to="/all-rooms"
+                  className="btn bg-transparent rounded-none border border-light hover:bg-secondary hover:border-none text-light text-2xl"
+                >
                   Book Now
                 </Link>
               </div>

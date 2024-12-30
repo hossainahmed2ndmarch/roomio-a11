@@ -18,9 +18,9 @@ const Home = () => {
     setShowModal(false);
   };
   return (
-    <div>
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div className="px-6">
+      {/* {showModal && (
+        <div className=" inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white rounded-lg p-6 max-w-md w-full">
             <h2 className="text-xl font-bold text-center mb-4">
               Special Offer
@@ -42,7 +42,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
 
       <Banner></Banner>
       <HotelMap></HotelMap>
