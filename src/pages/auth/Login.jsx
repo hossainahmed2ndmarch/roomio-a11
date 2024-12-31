@@ -84,17 +84,17 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center  py-8">
       <Helmet>
-        <title>Login | VisaVoyage</title>
+        <title>Login | ROOMIO</title>
       </Helmet>
-      <div className="card bg-white/20 backdrop-blur-sm rounded-3xl shadow-2xl w-full max-w-lg p-6 md:p-12 flex flex-col items-center">
-        <h2 className="text-4xl font-semibold text-navyText text-center mb-6">
+      <div className="card w-full max-w-lg p-6 md:p-12 flex flex-col items-center">
+        <h2 className="text-4xl font-semibold text-blackLight text-center mb-6">
           Login to your account
         </h2>
         <form onSubmit={handleSubmit} className="w-full">
           {/* Email */}
           <div className="form-control mb-4">
             <label className="label">
-              <span className="label-text text-xl text-navyText font-semibold">
+              <span className="label-text text-xl text-blackLight font-semibold">
                 Email address
               </span>
             </label>
@@ -102,7 +102,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter your email address"
-              className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all  w-full focus:outline-none"
+              className="input input-bordered w-full md:w-auto rounded-none border border-secondary"
               required
             />
             {error.email && (
@@ -115,7 +115,7 @@ const Login = () => {
           {/* Password */}
           <div className="form-control relative mb-6">
             <label className="label">
-              <span className="label-text text-xl text-navyText font-semibold">
+              <span className="label-text text-xl text-blackLight font-semibold">
                 Password
               </span>
             </label>
@@ -123,12 +123,12 @@ const Login = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
-              className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all  w-full focus:outline-none"
+              className="input input-bordered w-full md:w-auto rounded-none border border-secondary"
               required
             />
             <button
               onClick={() => setShowPassword(!showPassword)}
-              className="btn btn-xs bg-transparent hover:bg-transparent shadow-none border-none absolute right-4 top-14"
+              className="btn btn-xs bg-transparent hover:bg-transparent text-blackLight shadow-none border-none absolute right-4 top-14"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
@@ -146,7 +146,7 @@ const Login = () => {
               <a
                 href="#"
                 onClick={handleForgotPasswordRedirect}
-                className="label-text-alt text-navyText font-semibold link link-hover"
+                className="label-text-alt text-blackLight font-semibold link link-hover"
               >
                 Forgot password?
               </a>
@@ -155,26 +155,26 @@ const Login = () => {
 
           {/* Submit Button */}
           <div className="form-control mt-6">
-            <button className="py-2 px-4 rounded-lg bg-white shadow-[4px_4px_8px_rgba(0,0,0,0.2),-4px_-4px_8px_rgba(255,255,255,0.7)] font-semibold text-blue-600 transition-all hover:shadow-[5px_5px_10px_rgba(0,0,0,0.3),-5px_-5px_10px_rgba(255,255,255,0.2)] w-full">
+            <button className="btn border-none bg-primary text-light rounded-none hover:text-blackLight w-full">
               Login
             </button>
           </div>
 
           {/* Google Signup Button */}
           <div className="form-control mt-6">
-            <h5 className="text-3xl font-semibold text-navyText text-center mb-6">
+            <h5 className="text-3xl font-semibold text-blackLight text-center mb-6">
               Or
             </h5>
             <button
               onClick={handleGoogleSignUp}
-              className="py-2 px-4 rounded-lg bg-white  shadow-[4px_4px_8px_rgba(0,0,0,0.2),-4px_-4px_8px_rgba(255,255,255,0.7)] font-semibold text-blue-600 transition-all hover:shadow-[5px_5px_10px_rgba(0,0,0,0.3),-5px_-5px_10px_rgba(255,255,255,0.2)] w-full flex items-center justify-center"
+              className="btn border-none bg-primary text-light rounded-none hover:text-blackLight w-full"
             >
               <FaGoogle />
               <span className="ml-2">Sign Up With Google</span>
             </button>
           </div>
         </form>
-        <p className="font-semibold text-navyText text-center mt-6">
+        <p className="font-semibold text-blackLight text-center mt-6">
           Don’t Have An Account?{" "}
           <Link to={"/registration"} className="text-[#F75B5F]">
             Register

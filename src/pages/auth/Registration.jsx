@@ -96,17 +96,17 @@ const Registration = () => {
   return (
     <div className="min-h-screen flex items-center justify-center py-8">
       <Helmet>
-        <title>Register | VisaVoyage</title>
+        <title>Register | ROOMIO</title>
       </Helmet>
-      <div className="card bg-white/20 backdrop-blur-sm rounded-3xl  shadow-2xl w-full max-w-2xl p-2 md:p-[76px] shrink-0">
-        <h2 className="text-4xl font-semibold text-navyText text-center">
+      <div className="card w-full max-w-2xl p-2 md:p-[76px] shrink-0">
+        <h2 className="text-4xl font-semibold text-blackLight text-center">
           Register your account
         </h2>
         <form onSubmit={handleSubmit} className="card-body">
           {/* Name */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-xl text-navyText font-semibold">
+              <span className="label-text text-xl text-blackLight font-semibold">
                 Your Name
               </span>
             </label>
@@ -114,7 +114,7 @@ const Registration = () => {
               type="text"
               name="name"
               placeholder="Enter your name"
-              className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all  w-full focus:outline-none"
+              className="input input-bordered w-full md:w-auto rounded-none border border-secondary"
               required
             />
             {errors.name && (
@@ -126,7 +126,7 @@ const Registration = () => {
           {/* Photo */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-xl text-navyText font-semibold">
+              <span className="label-text text-xl text-blackLight font-semibold">
                 Photo URL
               </span>
             </label>
@@ -134,7 +134,7 @@ const Registration = () => {
               type="url"
               name="photo"
               placeholder="Drop your photo url"
-              className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all  w-full focus:outline-none"
+              className="input input-bordered w-full md:w-auto rounded-none border border-secondary"
               required
             />
             {errors.photo && (
@@ -146,7 +146,7 @@ const Registration = () => {
           {/* Email */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-xl text-navyText font-semibold">
+              <span className="label-text text-xl text-blackLight font-semibold">
                 Email address
               </span>
             </label>
@@ -154,7 +154,7 @@ const Registration = () => {
               type="email"
               name="email"
               placeholder="Enter your email address"
-              className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all  w-full focus:outline-none"
+              className="input input-bordered w-full md:w-auto rounded-none border border-secondary"
               required
             />
             {errors.email && (
@@ -166,7 +166,7 @@ const Registration = () => {
           {/* Password Create */}
           <div className="form-control relative">
             <label className="label">
-              <span className="label-text text-xl text-navyText font-semibold">
+              <span className="label-text text-xl text-blackLight font-semibold">
                 Create Your Password
               </span>
             </label>
@@ -174,12 +174,12 @@ const Registration = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
-              className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all  w-full focus:outline-none"
+              className="input input-bordered w-full md:w-auto rounded-none border border-secondary"
               required
             />
             <button
               onClick={() => setShowPassword(!showPassword)}
-              className="btn btn-xs bg-transparent hover:bg-transparent shadow-none border-none absolute right-2 top-14"
+              className="btn btn-xs bg-transparent hover:bg-transparent text-blackLight shadow-none border-none absolute right-2 top-14"
             >
               {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
             </button>
@@ -192,7 +192,7 @@ const Registration = () => {
           {/* Password Confirm */}
           <div className="form-control relative">
             <label className="label">
-              <span className="label-text text-xl text-navyText font-semibold">
+              <span className="label-text text-xl text-blackLight font-semibold">
                 Confirm Your Password
               </span>
             </label>
@@ -200,12 +200,12 @@ const Registration = () => {
               type={showPassword ? "text" : "password"}
               name="confirmPassword"
               placeholder="Enter your password"
-              className="py-2 px-4 rounded-lg shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-teal-300 font-semibold transition-all  w-full focus:outline-none"
+              className="input input-bordered w-full md:w-auto rounded-none border border-secondary"
               required
             />
             <button
               onClick={() => setShowPassword(!showPassword)}
-              className="btn btn-xs bg-transparent hover:bg-transparent shadow-none border-none absolute right-2 top-14"
+              className="btn btn-xs bg-transparent hover:bg-transparent text-blackLight shadow-none border-none absolute right-2 top-14"
             >
               {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
             </button>
@@ -221,9 +221,9 @@ const Registration = () => {
               <input
                 type="checkbox"
                 name="terms"
-                className="checkbox checked:bg-navyText border-2 border-navyText checkbox-primary outline-navyText"
+                className="checkbox checked:bg-navyText border-2 border-blackLight checkbox-primary outline-navyText"
               />
-              <span className="label-text text-navyText font-semibold ml-4">
+              <span className="label-text text-blackLight font-semibold ml-4">
                 Accept our{" "}
                 <a className="underline" href="">
                   terms
@@ -241,7 +241,7 @@ const Registration = () => {
             )}
           </div>
           <div className="form-control mt-6">
-            <button className="py-2 px-4 rounded-lg bg-white shadow-[4px_4px_8px_rgba(0,0,0,0.2),-4px_-4px_8px_rgba(255,255,255,0.7)] font-semibold text-blue-600 transition-all hover:shadow-[5px_5px_10px_rgba(0,0,0,0.3),-5px_-5px_10px_rgba(255,255,255,0.2)] w-full">
+            <button className="btn border-none bg-primary text-light rounded-none hover:text-blackLight w-full">
               Register
             </button>
           </div>
@@ -251,12 +251,12 @@ const Registration = () => {
             </p>
           )}
           <div className="form-control mt-6">
-            <h5 className="text-3xl font-semibold text-navyText text-center mb-6">
+            <h5 className="text-3xl font-semibold text-blackLight text-center mb-6">
               Or
             </h5>
             <button
               onClick={handleGoogleSignUp}
-              className="flex items-center space-x-2 justify-center py-2 px-4 rounded-lg bg-white shadow-[4px_4px_8px_rgba(0,0,0,0.2),-4px_-4px_8px_rgba(255,255,255,0.7)] font-semibold text-blue-600 transition-all hover:shadow-[5px_5px_10px_rgba(0,0,0,0.3),-5px_-5px_10px_rgba(255,255,255,0.2)] w-full"
+              className="btn border-none bg-primary text-light rounded-none hover:text-blackLight w-full"
             >
               <FaGoogle></FaGoogle>{" "}
               <span className="hidden md:flex">Sign Up With Google</span>
@@ -264,7 +264,7 @@ const Registration = () => {
           </div>
         </form>
 
-        <p className="font-semibold text-navyText text-center">
+        <p className="font-semibold text-blackLight text-center">
           Already Have An Account ?{" "}
           <Link to={"/login"} className="text-[#F75B5F]">
             Login

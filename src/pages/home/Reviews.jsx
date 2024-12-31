@@ -1,5 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation, Autoplay } from "swiper/modules"; // Import Autoplay
 import ReviewCard from "../../components/ReviewCard";
 
 const Reviews = () => {
@@ -10,19 +15,38 @@ const Reviews = () => {
       .get("http://localhost:5000/reviews/home")
       .then((res) => setReviews(res.data));
   }, []);
+
   return (
     <div className="my-10">
-      <h2 className="text-4xl font-bold text-blackLight">Guest Experiences</h2>
-      <p className="text-primary">
-        Discover what our valued guests have to say about their unforgettable{" "}
-        <br />
+      <h2 className="text-4xl font-bold text-blackLight text-center">Guest Experiences</h2>
+      <p className="text-primary text-center">
+        Discover what our valued guests have to say about their unforgettable <br />
         stays, from exceptional service to luxurious rooms <br />
         and memorable amenities.
       </p>
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {reviews.map((review) => (
-          <ReviewCard key={review?._id} reviewData={review}></ReviewCard>
-        ))}
+      <div className="mt-10">
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={20}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          autoplay={{
+            delay: 3000, // Adjust the autoplay delay in milliseconds (3 seconds here)
+            disableOnInteraction: false, // Keeps autoplay even after user interaction
+          }}
+          navigation
+          pagination={{ clickable: true }}
+          modules={[Pagination, Navigation, Autoplay]}
+          className="review-carousel"
+        >
+          {reviews.map((review) => (
+            <SwiperSlide key={review?._id}>
+              <ReviewCard reviewData={review} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

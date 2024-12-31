@@ -26,6 +26,7 @@ import BookingModal from "./BookingModal";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import RoomReviewCard from "./RoomReviewCard";
+import { Helmet } from "react-helmet-async";
 
 const Room = () => {
   const room = useLoaderData();
@@ -73,8 +74,7 @@ const Room = () => {
   const handleConfirmBooking = () => {
     // Disable the "Book Now" button after booking
     setIsBookingDisabled(true);
-    setIsModalOpen(false); // Close the modal after confirmation
-    alert("Booking confirmed! The room is now unavailable.");
+    setIsModalOpen(false);
   };
 
   // Map icons for room amenities
@@ -108,6 +108,9 @@ const Room = () => {
 
   return (
     <div className="my-10 p-6">
+      <Helmet>
+        <title>RoomDetails | ROOMIO</title>
+      </Helmet>
       <div className="card card-compact bg-base-100 w-full rounded-none">
         {/* Image */}
         <img src={image} alt="" />
@@ -191,7 +194,7 @@ const Room = () => {
             <h2 className="text-2xl font-bold text-[#ece9e4]">
               Guest Experiences That Speak Volumes
             </h2>
-            <div className=" mt-10 grid grid-cols-1 grid-flow-row auto-rows-max  gap-6">
+            <div className="col-span-1 mt-10 grid grid-cols-1 grid-flow-row auto-rows-max  gap-6">
               {reviews.map((review) => (
                 <RoomReviewCard
                   key={review?._id}

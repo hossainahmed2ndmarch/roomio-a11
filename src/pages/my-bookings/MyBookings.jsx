@@ -7,6 +7,8 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import moment from "moment/moment";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import BookingCard from "./BookingCard";
+import { Helmet } from "react-helmet-async";
 
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
@@ -93,9 +95,32 @@ const MyBookings = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-xl font-bold">My Bookings</h2>
-      <table className="table-auto w-full mt-4">
+    <div className="my-10 p-4 md:p-6">
+      <Helmet>
+        <title>MyBookings | ROOMIO</title>
+      </Helmet>
+      <h2 className="text-4xl text-center text-blackLight font-bold">
+        My Bookings
+      </h2>
+      <p className="text-primary text-center">
+        Welcome to the Bookings page! Manage your reservations effortlessly by
+        viewing details <br />
+        like price, booking date, and descriptions. Select or update booking{" "}
+        <br />
+        dates and confirm your stay securely with just a click.{" "}
+      </p>
+      <div className="mt-10 bg-[#b7c9ae] grid grid-cols-1 gap-6 p-6">
+        {bookings.map((booking) => (
+          <BookingCard
+            key={booking?._id}
+            booking={booking}
+            handleReviewBooking={handleReviewBooking}
+            handleUpdateBookingDate={handleUpdateBookingDate}
+            handleCancelBooking={handleCancelBooking}
+          ></BookingCard>
+        ))}
+      </div>
+      {/* <table className="table-auto w-full mt-4">
         <thead>
           <tr>
             <th className="border p-2">Image</th>
@@ -145,7 +170,7 @@ const MyBookings = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
       {/* Review Modal */}
       {showReviewModal && (
         <ReviewModal
