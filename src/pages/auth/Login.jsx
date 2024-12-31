@@ -51,7 +51,7 @@ const Login = () => {
         const user = res.user;
         setUser(user);
         e.target.reset();
-        toast.success(`🎉 Welcome back! ${user?.displayName} Happy learning!`);
+        toast.success(`🎉 Welcome back! ${user?.displayName} Happy visit!`);
         navigate(from);
       })
       .catch((err) => {

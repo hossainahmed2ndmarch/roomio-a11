@@ -7,21 +7,21 @@ const UpdateDateModal = ({ booking, onCancel, onUpdate }) => {
   const [newDate, setNewDate] = useState(null);
   // const { _id } = booking;
   // console.log(_id);
-  console.log(booking);
+  // console.log(booking);
 
   const handleUpdateDate = () => {
     if (newDate) {
       axios
-        .put(`http://localhost:5000/bookings/${booking}`, {
+        .put(`https://roomio-a11-server.vercel.app/bookings/${booking}`, {
           bookingDate: newDate.toISOString(),
         })
         .then((response) => {
           onUpdate(response?.data);
           onCancel(false);
         })
-        .catch((error) => {
-          console.error("Error updating booking date", error);
-        });
+        // .catch((error) => {
+        //   .error("Error updating booking date", error);
+        // });
     }
   };
 

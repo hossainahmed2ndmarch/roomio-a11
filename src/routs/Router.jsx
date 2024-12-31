@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       {
         path: "all-rooms",
         element: <Rooms></Rooms>,
-        loader: () => fetch("http://localhost:5000/rooms"),
+        loader: () => fetch("https://roomio-a11-server.vercel.app/rooms"),
       },
       {
         path: "my-bookings",
@@ -32,17 +32,12 @@ const router = createBrowserRouter([
             <MyBookings></MyBookings>
           </PrivateRoute>
         ),
-        
       },
       {
         path: "/room-details/:id",
-        element: (
-          <PrivateRoute>
-            <Room></Room>
-          </PrivateRoute>
-        ),
+        element: <Room></Room>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/rooms/${params.id}`),
+          fetch(`https://roomio-a11-server.vercel.app/rooms/${params.id}`),
       },
 
       {

@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://roomio-a11-server.vercel.app",
   withCredentials: true,
 });
 const useAxiosSecure = () => {
@@ -21,7 +21,7 @@ const useAxiosSecure = () => {
             .then(() => {
               navigate("/login");
             })
-            .catch((err) => console.log(err));
+            // .catch((err) => console.log(err));
         }
         return Promise.reject(error);
       }

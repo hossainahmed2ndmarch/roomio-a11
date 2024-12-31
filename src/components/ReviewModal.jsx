@@ -12,7 +12,7 @@ const ReviewModal = ({ booking, onCancel, user }) => {
   const handleSubmit = () => {
     if (review) {
       axios
-        .post("http://localhost:5000/reviews", {
+        .post("https://roomio-a11-server.vercel.app/reviews", {
           bookingId: booking?._id,
           reviewedRoomId: booking?.bookedId,
           reviewerName: displayName,
@@ -24,9 +24,9 @@ const ReviewModal = ({ booking, onCancel, user }) => {
         .then(() => {
           onCancel(false);
         })
-        .catch((error) => {
-          console.error("Error posting review", error);
-        });
+        // .catch((error) => {
+        //   console.error("Error posting review", error);
+        // });
     }
   };
 

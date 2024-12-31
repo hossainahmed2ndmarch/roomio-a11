@@ -12,12 +12,12 @@ const BookingModal = ({ room, user, onClose, onConfirm }) => {
     if (bookingDate) {
       // Update room availability via PUT request
       axios
-        .put(`http://localhost:5000/rooms/${room._id}`, {
+        .put(`https://roomio-a11-server.vercel.app/rooms/${room._id}`, {
           isAvailable: false,
         })
         .then(() => {
           // Log booking information via POST request
-          return axios.post("http://localhost:5000/bookings", {
+          return axios.post("https://roomio-a11-server.vercel.app/bookings", {
             bookedId: _id,
             userEmail: email,
             price: price,
@@ -31,13 +31,14 @@ const BookingModal = ({ room, user, onClose, onConfirm }) => {
           onConfirm(); // Update parent state (if needed)
           onClose(); // Close the modal
         })
-        .catch((error) => {
-          console.error("Error during booking:", error);
-          alert("An error occurred while processing your booking.");
-        });
-    } else {
-      alert("Please select a date to proceed with booking.");
-    }
+        // .catch((error) => {
+        //   console.error("Error during booking:", error);
+        //   alert("An error occurred while processing your booking.");
+        // });
+    } 
+    // else {
+    //   alert("Please select a date to proceed with booking.");
+    // }
   };
 
   return (

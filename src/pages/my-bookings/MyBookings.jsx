@@ -22,7 +22,7 @@ const MyBookings = () => {
   useEffect(() => {
     // Fetch the user's bookings from the backend
     // axios
-    //   .get(`http://localhost:5000/my-booked-rooms?email=${user?.email}`, {
+    //   .get(`https://roomio-a11-server.vercel.app/my-booked-rooms?email=${user?.email}`, {
     //     withCredentials: true,
     //   })
     //   .then((response) => {
@@ -63,10 +63,10 @@ const MyBookings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/bookings/${id}`)
+          .delete(`https://roomio-a11-server.vercel.app/bookings/${id}`)
           .then(() => {
             // After successful deletion, update the isAvailable status
-            return axios.put(`http://localhost:5000/rooms/${bookedId}`, {
+            return axios.put(`https://roomio-a11-server.vercel.app/rooms/${bookedId}`, {
               isAvailable: true,
             });
           })
@@ -83,7 +83,7 @@ const MyBookings = () => {
   // Update functionality
   const handleUpdateBookingDate = (booking) => {
     setSelectedBooking(booking);
-    console.log(booking);
+    // console.log(booking);
     setShowUpdateDateModal(true);
   };
 

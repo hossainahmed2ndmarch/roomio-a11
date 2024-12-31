@@ -12,7 +12,7 @@ const Reviews = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/reviews/home")
+      .get("https://roomio-a11-server.vercel.app/reviews/home")
       .then((res) => setReviews(res.data));
   }, []);
 

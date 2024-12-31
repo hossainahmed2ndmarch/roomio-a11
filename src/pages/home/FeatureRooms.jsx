@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const FeatureRooms = () => {
   const [rooms, setRooms] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/rooms/top-rated").then((res) => {
+    axios.get("https://roomio-a11-server.vercel.app/rooms/top-rated").then((res) => {
       setRooms(res.data);
     });
   }, []);

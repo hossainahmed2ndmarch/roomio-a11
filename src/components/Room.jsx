@@ -50,12 +50,12 @@ const Room = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isBookingDisabled, setIsBookingDisabled] = useState(!isAvailable);
   const [reviews, setReviews] = useState([]);
-  console.log(reviews);
+  // console.log(reviews);
 
   // Load Reviews
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/room-reviews?roomId=${_id}`)
+      .get(`https://roomio-a11-server.vercel.app/room-reviews?roomId=${_id}`)
       .then((res) => {
         setReviews(res?.data);
       });
@@ -64,7 +64,7 @@ const Room = () => {
   const handleBooking = () => {
     if (isAvailable) {
       setIsModalOpen(true);
-      console.log("Modal Open State:", isModalOpen);
+      // console.log("Modal Open State:", isModalOpen);
       // Open the modal on button click
     } else {
       alert("This room is already booked.");
@@ -116,7 +116,7 @@ const Room = () => {
         <img src={image} alt="" />
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Room Details */}
-          <div className="col-span-2 card-body space-y-5">
+          <div className="col-span-2 card-body space-y-5 flex-grow">
             <h2 className="card-title text-3xl">{title}</h2>
             <h3 className="text-secondary font-medium text-xl">
               {size}/ {category}/ {guests} Guests
@@ -190,11 +190,11 @@ const Room = () => {
             </div>
           </div>
           {/* Room Reviews */}
-          <div className="bg-primary border rounded-lg shadow-md p-6 ">
+          <div className="grid-flow-row auto-rows-max bg-primary border rounded-lg shadow-md p-6 ">
             <h2 className="text-2xl font-bold text-[#ece9e4]">
               Guest Experiences That Speak Volumes
             </h2>
-            <div className="col-span-1 mt-10 grid grid-cols-1 grid-flow-row auto-rows-max  gap-6">
+            <div className=" mt-10 grid grid-cols-1 gap-6">
               {reviews.map((review) => (
                 <RoomReviewCard
                   key={review?._id}
