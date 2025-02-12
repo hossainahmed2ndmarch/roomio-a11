@@ -82,7 +82,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center  py-8">
+    <div className="min-h-screen mt-24 flex items-center justify-center  py-8">
       <Helmet>
         <title>Login | ROOMIO</title>
       </Helmet>

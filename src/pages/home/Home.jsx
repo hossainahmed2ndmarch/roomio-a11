@@ -21,7 +21,7 @@ const Home = () => {
     setShowModal(false);
   };
   return (
-    <div className="px-6">
+    <div className="px-6 mt-24 mx-auto">
       <Helmet>
         <title>Home | ROOMIO</title>
       </Helmet>

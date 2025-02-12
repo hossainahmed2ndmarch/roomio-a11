@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
@@ -9,6 +9,7 @@ import { FaPlaneDeparture } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,36 +22,88 @@ const Navbar = () => {
     logOut(navigate);
   };
 
+  // Scroll listener to detect scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if the user scrolled down 50px
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   // Nav links
   const links = (
     <>
       <NavLink
-        className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+        className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
         to="/"
       >
         Home
       </NavLink>
       <NavLink
-        className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+        className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
         to="/all-rooms"
       >
         Rooms
       </NavLink>
+      <NavLink
+        className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+        to="/gallery"
+      >
+        Gallery
+      </NavLink>
+
       {user && user?.email && (
         <>
           <NavLink
-            className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+            className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
             to="/my-bookings"
           >
             My Bookings
           </NavLink>
         </>
       )}
+      {user && user?.email && (
+        <>
+          <NavLink
+            className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+            to="/packages-offers"
+          >
+            Packages & Offers
+          </NavLink>
+        </>
+      )}
+      <NavLink
+        className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+        to="/about-us"
+      >
+        About Us
+      </NavLink>
+      <NavLink
+        className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+        to="/terms-conditions"
+      >
+        Terms & Conditions
+      </NavLink>
     </>
   );
 
   return (
-    <div className="navbar shadow-lg rounded-b-3xl">
+    <div
+      className={`navbar  top-0 fixed z-10 px-6 transition-all duration-300 text-white ${
+        isScrolled ? "bg-light bg-opacity-80 shadow-lg" : "bg-light"
+      }`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -63,11 +116,11 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="flex flex-col items-center">
+        <Link to="/" className="flex flex-col items-center">
           {/* <!-- Logo Text --> */}
-          <a className="text-3xl text-primary tracking-[5px]">
+          <Link className="text-3xl text-primary tracking-[5px]">
             R<span class="text-secondary">OO</span>MIO
-          </a>
+          </Link>
 
           {/* <!-- Star Section --> */}
           <div className="flex space-x-1 mt-2">
@@ -77,7 +130,7 @@ const Navbar = () => {
             <span className="text-secondary text-lg">★</span>
             <span className="text-secondary text-lg">★</span>
           </div>
-        </div>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-4">{links}</ul>
@@ -103,7 +156,7 @@ const Navbar = () => {
             to={"/registration"}
             data-tooltip-id="register-tooltip"
             data-tooltip-content="Register your account"
-            className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+            className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
           >
             Register
           </NavLink>
@@ -114,7 +167,7 @@ const Navbar = () => {
             onClick={handleLogOut}
             data-tooltip-id="logout-tooltip"
             data-tooltip-content="Log Out"
-            className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+            className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
           >
             Log-Out
           </button>
@@ -123,7 +176,7 @@ const Navbar = () => {
             to={"/login"}
             data-tooltip-id="login-tooltip"
             data-tooltip-content="Log in to your account"
-            className="btn rounded-none hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+            className="btn rounded-none text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
           >
             LogIn
           </NavLink>

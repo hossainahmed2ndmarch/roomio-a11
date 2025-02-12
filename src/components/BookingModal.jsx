@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { FaCalendarAlt } from "react-icons/fa";
 
 const BookingModal = ({ room, user, onClose, onConfirm }) => {
   const { price, title, image, description, _id } = room;
@@ -64,7 +65,9 @@ const BookingModal = ({ room, user, onClose, onConfirm }) => {
           <DatePicker
             selected={bookingDate}
             onChange={(date) => setBookingDate(date)}
-            dateFormat="yyyy/MM/dd"
+            showIcon
+            icon={<FaCalendarAlt className="mt-1 text-xl text-primary" />}
+            dateFormat="MMMM d, yyyy"
             minDate={new Date()}
             className="border border-primary p-2 w-full"
           />

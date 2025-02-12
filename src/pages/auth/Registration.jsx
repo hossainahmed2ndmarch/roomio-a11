@@ -225,13 +225,13 @@ const Registration = () => {
               />
               <span className="label-text text-blackLight font-semibold ml-4">
                 Accept our{" "}
-                <a className="underline" href="">
+                <Link className="underline" to='/terms-conditions'>
                   terms
-                </a>{" "}
+                </Link>{" "}
                 and{" "}
-                <a className="underline" href="">
+                <Link to='/terms-conditions' className="underline" href="">
                   conditions
-                </a>
+                </Link>
               </span>
             </label>
             {errors.terms && (

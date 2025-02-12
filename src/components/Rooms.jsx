@@ -28,7 +28,7 @@ const Rooms = () => {
   };
 
   return (
-    <div className="my-10 p-4 md:p-6">
+    <div className="mt-24 mb-10 p-6">
       <Helmet>
         <title>Rooms | ROOMIO</title>
       </Helmet>

@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation, Autoplay } from "swiper/modules"; // Import Autoplay
+import { Pagination, Autoplay } from "swiper/modules";
 import ReviewCard from "../../components/ReviewCard";
 
 const Reviews = () => {
@@ -18,9 +18,12 @@ const Reviews = () => {
 
   return (
     <div className="my-10">
-      <h2 className="text-4xl font-bold text-blackLight text-center">Guest Experiences</h2>
+      <h2 className="text-4xl font-bold text-blackLight text-center">
+        Guest Experiences
+      </h2>
       <p className="text-primary text-center">
-        Discover what our valued guests have to say about their unforgettable <br />
+        Discover what our valued guests have to say about their unforgettable{" "}
+        <br />
         stays, from exceptional service to luxurious rooms <br />
         and memorable amenities.
       </p>
@@ -33,12 +36,11 @@ const Reviews = () => {
             1024: { slidesPerView: 3 },
           }}
           autoplay={{
-            delay: 3000, // Adjust the autoplay delay in milliseconds (3 seconds here)
-            disableOnInteraction: false, // Keeps autoplay even after user interaction
+            delay: 3000,
+            disableOnInteraction: false,
           }}
-          navigation
           pagination={{ clickable: true }}
-          modules={[Pagination, Navigation, Autoplay]}
+          modules={[Pagination, Autoplay]}
           className="review-carousel"
         >
           {reviews.map((review) => (

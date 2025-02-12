@@ -17,7 +17,7 @@ const HotelMap = () => {
 
   return (
     <div className="my-10">
-      <div className="mb-10">
+      <div className="mb-10 text-center">
         <h2 className="text-[#5c4b51] text-5xl font-bold">
           Find Your Perfect Stay
         </h2>
@@ -27,7 +27,7 @@ const HotelMap = () => {
           attractions, and choose the ideal room for your next getaway.
         </p>
       </div>
-      <div className="map-container h-[400px] w-full">
+      <div className="relative z-0 h-[400px] w-full">
         <MapContainer
           center={position}
           zoom={13}

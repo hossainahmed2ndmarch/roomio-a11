@@ -66,9 +66,12 @@ const MyBookings = () => {
           .delete(`https://roomio-a11-server.vercel.app/bookings/${id}`)
           .then(() => {
             // After successful deletion, update the isAvailable status
-            return axios.put(`https://roomio-a11-server.vercel.app/rooms/${bookedId}`, {
-              isAvailable: true,
-            });
+            return axios.put(
+              `https://roomio-a11-server.vercel.app/rooms/${bookedId}`,
+              {
+                isAvailable: true,
+              }
+            );
           })
           .then(() => {
             setBookings((prevBookings) =>
@@ -95,7 +98,7 @@ const MyBookings = () => {
   };
 
   return (
-    <div className="my-10 p-4 md:p-6">
+    <div className="my-24 p-6">
       <Helmet>
         <title>MyBookings | ROOMIO</title>
       </Helmet>

@@ -18,17 +18,19 @@ const UpdateDateModal = ({ booking, onCancel, onUpdate }) => {
         .then((response) => {
           onUpdate(response?.data);
           onCancel(false);
-        })
-        // .catch((error) => {
-        //   .error("Error updating booking date", error);
-        // });
+        });
+      // .catch((error) => {
+      //   .error("Error updating booking date", error);
+      // });
     }
   };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-6 rounded-md w-96">
-        <h2 className="text-3xl text-blackLight text-center font-bold">Update Booking Date</h2>
+        <h2 className="text-3xl text-blackLight text-center font-bold">
+          Update Booking Date
+        </h2>
         <div className="mt-4">
           <DatePicker
             selected={newDate}
@@ -39,10 +41,16 @@ const UpdateDateModal = ({ booking, onCancel, onUpdate }) => {
           />
         </div>
         <div className="mt-4 flex justify-end space-x-4">
-          <button className="btn border-none bg-red-500 text-light rounded-none hover:text-blackLight" onClick={() => onCancel(false)}>
+          <button
+            className="btn border-none bg-red-500 text-light rounded-none hover:text-blackLight"
+            onClick={() => onCancel(false)}
+          >
             Cancel
           </button>
-          <button className="btn border-none bg-primary text-light rounded-none hover:text-blackLight" onClick={handleUpdateDate}>
+          <button
+            className="btn border-none bg-primary text-light rounded-none hover:text-blackLight"
+            onClick={handleUpdateDate}
+          >
             Update
           </button>
         </div>

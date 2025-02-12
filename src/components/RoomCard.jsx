@@ -11,7 +11,7 @@ const RoomCard = ({ room, avgRating }) => {
   const { image, price, description, bed, guests, size, title, _id } = room;
 
   return (
-    <div className="card card-compact bg-base-100 w-96 rounded-none relative">
+    <div className="card card-compact bg-base-100 w-full rounded-none relative">
       {/* Ratings on top-right */}
       <div className="absolute top-4 right-4 flex flex-col items-center">
         <Rating

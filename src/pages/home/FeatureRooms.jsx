@@ -11,7 +11,7 @@ const FeatureRooms = () => {
     });
   }, []);
   return (
-    <div>
+    <div className="my-10">
       <div className="flex flex-col md:flex-row justify-between items-center space-x-4">
         <div className="space-y-4">
           <h5 className="text-primary text-lg font-bold">
@@ -37,7 +37,7 @@ const FeatureRooms = () => {
           </Link>
         </div>
       </div>
-      <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
         {rooms.map((room) => (
           <RoomCard
             key={room.roomDetails._id}

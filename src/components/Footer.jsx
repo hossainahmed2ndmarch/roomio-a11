@@ -1,10 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-primary text-light p-10">
+    <footer className="footer justify-items-center bg-primary text-light py-10">
       <nav>
-        <h2 className="text-light text-5xl font-bold">ROOMIO</h2>
+        <h2 className="text-light text-5xl font-bold">
+          R<span class="text-secondary">OO</span>MIO
+        </h2>
+        <div className="flex items-center ml-8 space-x-1 mt-2">
+          <span className="text-secondary text-xl">★</span>
+          <span className="text-secondary text-xl">★</span>
+          <span className="text-secondary text-xl">★</span>
+          <span className="text-secondary text-xl">★</span>
+          <span className="text-secondary text-xl">★</span>
+        </div>
         <p>
           Founded in 1998, Roomio Resort is located <br />
           in Dhaka, immersing you in the wonder <br />
@@ -14,24 +24,43 @@ const Footer = () => {
       </nav>
       <nav>
         <h6 className="footer-title">About Us</h6>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <Link to="/about-us" className="link link-hover">
+          Branding
+        </Link>
+        <Link to="/about-us" className="link link-hover">
+          Design
+        </Link>
+        <Link to="/about-us" className="link link-hover">
+          Marketing
+        </Link>
+        <Link to="/about-us" className="link link-hover">
+          Advertisement
+        </Link>
       </nav>
       <nav>
-        <h6 className="footer-title">Experiences</h6>
-        <a className="link link-hover">Dining</a>
-        <a className="link link-hover">Spa & Wellness</a>
-        <a className="link link-hover">Local Activities</a>
-        <a className="link link-hover">Meetings</a>
-        <a className="link link-hover">Our Menu</a>
+        <h6 className="footer-title">Services</h6>
+        <Link className="link link-hover">Dining</Link>
+        <Link to="/all-rooms" className="link link-hover">
+          Rooms
+        </Link>
+        <Link to="/gallery" className="link link-hover">
+          Gallery
+        </Link>
+        <Link to="/packages-offers" className="link link-hover">
+          Packages & Offers
+        </Link>
       </nav>
       <nav>
-        <h6 className="footer-title">Legal</h6>
-        <a className="link link-hover">Terms of use</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
+        <h6 className="footer-title">Terms & Conditions</h6>
+        <Link to="/terms-conditions" className="link link-hover">
+          Terms of use
+        </Link>
+        <Link to="/terms-conditions" className="link link-hover">
+          Privacy policy
+        </Link>
+        <Link to="/terms-conditions" className="link link-hover">
+          Cookie policy
+        </Link>
       </nav>
     </footer>
   );

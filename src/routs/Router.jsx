@@ -9,6 +9,10 @@ import PrivateRoute from "./PrivateRoute";
 import Rooms from "../components/Rooms";
 import Room from "../components/Room";
 import MyBookings from "../pages/my-bookings/MyBookings";
+import PackagesOffers from "../pages/packagesoffers/PackagesOffers";
+import Gallery from "../pages/gallery/Gallery";
+import AboutUs from "../pages/aboutus/AboutUs";
+import TermsConditions from "../pages/termsconditions/TermsConditions";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +34,26 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyBookings></MyBookings>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "gallery",
+        element: <Gallery></Gallery>,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "terms-conditions",
+        element: <TermsConditions></TermsConditions>,
+      },
+      {
+        path: "packages-offers",
+        element: (
+          <PrivateRoute>
+            <PackagesOffers></PackagesOffers>
           </PrivateRoute>
         ),
       },

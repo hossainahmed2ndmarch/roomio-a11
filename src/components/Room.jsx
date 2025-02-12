@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { GoPeople } from "react-icons/go";
 import { LuBedDouble } from "react-icons/lu";
@@ -31,6 +31,7 @@ import { Helmet } from "react-helmet-async";
 const Room = () => {
   const room = useLoaderData();
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
   const {
     _id,
     price,
@@ -62,12 +63,12 @@ const Room = () => {
   }, [_id]);
 
   const handleBooking = () => {
-    if (isAvailable) {
+    if (isAvailable && user && user?.email) {
       setIsModalOpen(true);
       // console.log("Modal Open State:", isModalOpen);
       // Open the modal on button click
     } else {
-      alert("This room is already booked.");
+      navigate('/login')
     }
   };
 
@@ -107,7 +108,7 @@ const Room = () => {
   };
 
   return (
-    <div className="my-10 p-6">
+    <div className="mt-24 p-6">
       <Helmet>
         <title>RoomDetails | ROOMIO</title>
       </Helmet>
