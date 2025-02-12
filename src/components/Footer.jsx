@@ -5,16 +5,18 @@ const Footer = () => {
   return (
     <footer className="footer justify-items-center bg-primary text-light py-10">
       <nav>
-        <h2 className="text-light text-5xl font-bold">
-          R<span class="text-secondary">OO</span>MIO
-        </h2>
-        <div className="flex items-center ml-8 space-x-1 mt-2">
-          <span className="text-secondary text-xl">★</span>
-          <span className="text-secondary text-xl">★</span>
-          <span className="text-secondary text-xl">★</span>
-          <span className="text-secondary text-xl">★</span>
-          <span className="text-secondary text-xl">★</span>
-        </div>
+        <Link to="/">
+          <h2 className="text-light text-5xl font-bold">
+            R<span class="text-secondary">OO</span>MIO
+          </h2>
+          <div className="flex items-center ml-8 space-x-1 mt-2">
+            <span className="text-secondary text-xl">★</span>
+            <span className="text-secondary text-xl">★</span>
+            <span className="text-secondary text-xl">★</span>
+            <span className="text-secondary text-xl">★</span>
+            <span className="text-secondary text-xl">★</span>
+          </div>
+        </Link>
         <p>
           Founded in 1998, Roomio Resort is located <br />
           in Dhaka, immersing you in the wonder <br />
@@ -39,7 +41,6 @@ const Footer = () => {
       </nav>
       <nav>
         <h6 className="footer-title">Services</h6>
-        <Link className="link link-hover">Dining</Link>
         <Link to="/all-rooms" className="link link-hover">
           Rooms
         </Link>
