@@ -31,7 +31,7 @@ const FeatureRooms = () => {
         <div>
           <Link
             to="/all-rooms"
-            className="btn bg-secondary rounded-none border-none text-light text-lg"
+            className="btn bg-primary rounded-none border-none text-light text-lg"
           >
             Discover All Rooms
           </Link>
