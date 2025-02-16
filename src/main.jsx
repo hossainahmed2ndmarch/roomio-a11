@@ -7,9 +7,11 @@ import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./providers/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "./providers/ThemeProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>    
+  <React.StrictMode>
+    <ThemeProvider>
       <AuthProvider>
         <HelmetProvider>
           {" "}
@@ -32,5 +34,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           />
         </HelmetProvider>
       </AuthProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );

@@ -13,7 +13,7 @@ const AboutUs = () => {
   };
 
   return (
-    <div className="flex items-center justify-center mt-24 mb-10 px-6 bg-light">
+    <div className="flex items-center justify-center mt-24 mb-10 px-6 ">
       <Helmet>
         <title>About Us | Lıngo Bıngo</title>
       </Helmet>

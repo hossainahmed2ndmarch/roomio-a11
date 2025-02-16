@@ -10,8 +10,9 @@ export default {
         marcellus: ["Marcellus", "serif"],
       },
       colors: {
-        primary: "#54644c", // Olive green
-        blackLight:"#5c4b51",
+        primary: "var(--primary-text-color)", // Dynamic Primary Text
+        blackLight: "var(--secondary-text-color)", 
+        fixedOlive: "#54644c",
         secondary: "#bc9c74", // Beige gold
         light: "#ffffff", // White
       },

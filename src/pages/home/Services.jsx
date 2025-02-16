@@ -43,7 +43,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-16 my-10 bg-primary">
+    <section className="py-16 my-10 bg-fixedOlive">
       <div className="container mx-auto text-center">
         <h2 className="text-5xl font-bold text-light mb-4">
           Discover the Services We Offer

@@ -20,7 +20,7 @@ const Rooms = () => {
   const handleFilter = () => {
     axios
       .get(
-        `https://roomio-a11-server.vercel.app//rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`
+        `https://roomio-a11-server.vercel.app/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`
       )
       .then((response) => {
         setRooms(response.data);

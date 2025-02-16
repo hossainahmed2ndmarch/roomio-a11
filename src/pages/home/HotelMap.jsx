@@ -18,7 +18,7 @@ const HotelMap = () => {
   return (
     <div className="my-10">
       <div className="mb-10 text-center">
-        <h2 className="text-[#5c4b51] text-5xl font-bold">
+        <h2 className="text-blackLight text-5xl font-bold">
           Find Your Perfect Stay
         </h2>
         <p className="text-primary font-medium">

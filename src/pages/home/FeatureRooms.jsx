@@ -17,7 +17,7 @@ const FeatureRooms = () => {
           <h5 className="text-primary text-lg font-bold">
             Enjoy World-class Stay Experience
           </h5>
-          <h2 className="text-[#5c4b51] text-5xl font-bold">Select Your Chalet</h2>
+          <h2 className="text-blackLight text-5xl font-bold">Select Your Chalet</h2>
           <p className="text-primary font-medium">
             Escape to the beautiful mountains and valleys where dreams come{" "}
             <br />

@@ -13,3 +13,18 @@ body {
   color: white;
   border-color: transparent;
 }
+
+
+:root {
+  --primary-bg-color: white; /* Light mode background */
+  --primary-text-color: #54644c; /* Olive green */
+  --secondary-text-color: #5c4b51; /* Beige gold */
+}
+
+[data-theme="dark"] {
+  --primary-bg-color: #121212; /* Dark mode background */
+  --primary-text-color: #bc9c74; /* Beige gold */
+  --secondary-text-color: white; /* Beige gold */
+}
+
+

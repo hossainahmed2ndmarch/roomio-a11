@@ -9,7 +9,7 @@ const Offer = () => {
   return (
     <section className="my-10">
       <div className="text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-[#5c4b51]">
+        <h2 className="text-3xl md:text-5xl font-bold text-blackLight">
           Unmissable Deals for Your Perfect Getaway
         </h2>
         <p className="text-base md:text-lg text-primary font-medium">

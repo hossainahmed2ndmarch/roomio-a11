@@ -9,7 +9,7 @@ const ReviewCard = ({ reviewData }) => {
   const formattedTimestamp = dayjs(timestamp).format("MMMM, D, YYYY ");
 
   return (
-    <div className="p-6 space-y-6 bg-primary flex flex-col text-light border rounded-lg shadow-md relative">
+    <div className="p-6 space-y-6 bg-fixedOlive flex flex-col text-light border rounded-lg shadow-md relative">
       <div className="flex flex-row items-center space-x-4">
         <img
           src={reviewerImage}

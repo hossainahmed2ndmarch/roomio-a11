@@ -5,11 +5,12 @@ import { AuthContext } from "../providers/AuthProvider";
 import userIcon from "../assets/user.png";
 import { toast } from "react-toastify";
 import { Tooltip } from "react-tooltip";
-import { FaPlaneDeparture } from "react-icons/fa";
+import { useTheme } from "../providers/ThemeProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   const navigate = useNavigate();
 
@@ -136,6 +137,16 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 space-x-4">{links}</ul>
       </div>
       <div className="navbar-end flex items-center space-x-4">
+      <button
+          onClick={toggleTheme}
+          data-tooltip-id="theme-tooltip"
+          data-tooltip-content={
+            isDark ? "Switch to Light Mode" : "Switch to Dark Mode"
+          }
+          className="p-2 rounded-full text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border border-secondary"
+        >
+          {isDark ? "☀️" : "🌙"}
+        </button>
         {user && user?.email ? (
           <Link
             to="/my-profile"
