@@ -109,7 +109,7 @@ const Rooms = () => {
                 backgroundPosition: "center",
               }}
             >
-              <button className="btn absolute top-4 left-4 bg-light rounded-none text-blackLight outline-none">
+              <button className="btn absolute top-4 left-4 bg-light rounded-none text-fixedBlackLight outline-none">
                 ${room.price}/Night
               </button>
             </div>

@@ -33,7 +33,7 @@ const RoomCard = ({ room, avgRating }) => {
           backgroundImage: `url(${image})`,
         }}
       >
-        <button className="btn mr-96 text-blackLight bg-light rounded-none outline-none">
+        <button className="btn mr-96 text-fixedBlackLight bg-light rounded-none outline-none">
           ${price}/Night
         </button>
       </div>

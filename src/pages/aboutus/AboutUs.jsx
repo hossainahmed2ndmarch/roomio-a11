@@ -15,7 +15,7 @@ const AboutUs = () => {
   return (
     <div className="flex items-center justify-center mt-24 mb-10 px-6 ">
       <Helmet>
-        <title>About Us | Lıngo Bıngo</title>
+        <title>About Us | ROOMIO</title>
       </Helmet>
 
       <div className="w-full max-w-4xl p-8 bg-primary shadow-lg rounded-xl border border-gray-200">
@@ -38,7 +38,7 @@ const AboutUs = () => {
             </p>
             <button
               onClick={handleDownloadCV}
-              className="btn mt-6 bg-light border-none rounded-none text-blackLight"
+              className="btn mt-6 bg-light border-none rounded-none text-fixedBlackLight"
             >
               Download CV
             </button>

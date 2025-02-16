@@ -9,7 +9,7 @@ const TermsConditions = () => {
         <title>Terms & Conditions | ROOMIO</title>
       </Helmet>
       <div className="max-w-4xl mx-auto bg-light shadow-lg rounded-lg p-6 md:p-10">
-        <h2 className="text-4xl font-bold text-center text-blackLight mb-6">
+        <h2 className="text-4xl font-bold text-center text-fixedBlackLight mb-6">
           Terms & Conditions
         </h2>
         <p className="text-center text-primary mb-8">
@@ -22,7 +22,7 @@ const TermsConditions = () => {
             <h3 className="text-xl font-semibold text-secondary">
               1. Booking Policy
             </h3>
-            <p className="text-blackLight">
+            <p className="text-fixedBlackLight">
               Reservations are subject to availability. Full payment or a
               deposit is required at the time of booking.
             </p>
@@ -32,7 +32,7 @@ const TermsConditions = () => {
             <h3 className="text-xl font-semibold text-secondary">
               2. Cancellation & Refunds
             </h3>
-            <p className="text-blackLight">
+            <p className="text-fixedBlackLight">
               Cancellations made within 24 hours of check-in are non-refundable.
               Refunds (if applicable) may take up to 7-10 business days.
             </p>
@@ -42,7 +42,7 @@ const TermsConditions = () => {
             <h3 className="text-xl font-semibold text-secondary">
               3. Check-in & Check-out
             </h3>
-            <p className="text-blackLight">
+            <p className="text-fixedBlackLight">
               Check-in time: 2:00 PM | Check-out time: 11:00 AM. Late check-outs
               may incur additional charges.
             </p>
@@ -52,7 +52,7 @@ const TermsConditions = () => {
             <h3 className="text-xl font-semibold text-secondary">
               4. Guest Responsibilities
             </h3>
-            <p className="text-blackLight">
+            <p className="text-fixedBlackLight">
               Guests are responsible for any damages to the property. Smoking is
               prohibited in non-smoking rooms.
             </p>
@@ -62,7 +62,7 @@ const TermsConditions = () => {
             <h3 className="text-xl font-semibold text-secondary">
               5. Privacy Policy
             </h3>
-            <p className="text-blackLight">
+            <p className="text-fixedBlackLight">
               Your personal data is collected only for booking purposes and is
               kept confidential as per our privacy policies.
             </p>
